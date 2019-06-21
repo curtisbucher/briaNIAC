@@ -78,11 +78,17 @@ int read_byte(){
 }
 
 void increment_counter(){
-  // Increments the program counter by 1, and sets address accordingly
+  // Increments the program counter by 2, and sets address accordingly. Increments by two because A[0] is tied to mux
   digitalWrite(increment, LOW);
   digitalWrite(increment, HIGH);
   address += 1;
-  delay(0.5);//Waiting for data to latch
+  delay(0.25);//Waiting for data to latch
+  digitalWrite(increment, LOW);
+   
+  digitalWrite(increment, LOW);
+  digitalWrite(increment, HIGH);
+  //address += 1;
+  delay(0.25);//Waiting for data to latch
   digitalWrite(increment, LOW);
 }
 
@@ -115,10 +121,13 @@ void set_counter(int new_address){
 void romRead(int start_address, int end_address){
   clear_counter();
   set_counter(start_address);
+  int count = 0;
   
-  while(address < end_address){
+  while(count < (end_address - start_address)){
     Serial.write(read_byte());
     increment_counter();
+    increment_counter();
+    count++;
   }
   Serial.read();
 }
@@ -142,7 +151,7 @@ void romWrite(int start_address, int end_address){
     load_byte(dataIn);
     increment_counter();
   }
-  Serial.write(POS);
+  Serial.write(NEG);
 }
 
 void setup() {
