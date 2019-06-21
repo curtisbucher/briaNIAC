@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Jan 27 23:47:20 2019
-
 @author: curtisbucher
 Reset Arduino before each use. Wait for light to finish flashing
 """
