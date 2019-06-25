@@ -140,16 +140,21 @@ void romWrite(int start_address, int end_address){
   //Waiting for data
   clear_counter();
   set_counter(start_address);
+  int count = address;
 
   // Getting packets of 64 bytes at a time and requesting more when the buffer is empty
-  while(address < end_address){
-    if((end_address-address)%64==0)Serial.write(POS);
+  while(count < end_address){
+    if((end_address-count)%64==0)Serial.write(POS);
     while(Serial.available() == 0){}
     dataIn = Serial.read();
       
     //Loading data
     load_byte(dataIn);
     increment_counter();
+    //Loading data
+    load_byte(dataIn);
+    increment_counter();
+    count++;
   }
   Serial.write(NEG);
 }
