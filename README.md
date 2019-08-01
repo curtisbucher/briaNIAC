@@ -4,3 +4,5 @@ This repository contains all the software for my homebrew brainf*ck computer, th
 For a more detailed overview on the braiNIAC, it's hardware, and my progress on the project, checkout 
 [the braiNIAC website](https://hackaday.io/project/163991-brainiac)
 
+![img](https://docs.google.com/drawings/d/e/2PACX-1vSyYVDoglU4oU_PQzQ0mgNHf6wcvxmnSFdtrvSli2IoLPbdTZc5FJup5xlxsalGN9-Ab67-b4uTgOVW/pub?w=1392&h=813)
+
